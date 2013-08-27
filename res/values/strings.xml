@@ -7,5 +7,7 @@
     <string name="HinttxtOrder">Your Order</string>
     <string name="usernamebsptxt">Your Name</string>
     <string name="ButtonText">Test It!</string>
+    <string name="txtdev">Pre-Alpha developed by Sebastian Walla</string>
+    <string name="txtview2">" "</string>
 
 </resources>
