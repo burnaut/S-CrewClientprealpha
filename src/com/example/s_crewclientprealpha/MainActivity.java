@@ -13,12 +13,10 @@ import java.util.HashMap;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Context;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	 Socket serverside = null;
@@ -70,10 +68,16 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        	//exit();
+        	exit();
 		}
 		});
 		update.start();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		tv=(TextView) findViewById(R.id.textViewHeadline);
 		tv.setText(Restaurant);
 		tv.setVisibility(0);
@@ -107,6 +111,12 @@ public class MainActivity extends Activity {
 		   }
 		   });
 		   t.start();
+		   try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		   text=(CharSequence) "Data sent";
 			  tv.setText(text);
 	   }
