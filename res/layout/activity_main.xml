@@ -3,22 +3,52 @@
     android:id="@+id/RelativeLayoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/holzbackground"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/holzbackground"
     tools:context=".MainActivity" >
 
-    
-    <MultiAutoCompleteTextView
+    <TextView
+        android:id="@+id/textViewHeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/txtdev" />
+
+    <EditText
+        android:id="@+id/UsersName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textViewHeadline"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/usernamebsptxt" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/textViewBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="89dp"
+        android:text="@string/txtview2" />
+
+    <EditText
         android:id="@+id/bestellungstext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/UsersName"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="18dp"
         android:ems="10"
+        android:hint="@string/HinttxtOrder"
         android:text="@string/HinttxtOrder" />
 
     <Button
@@ -30,34 +60,15 @@
         android:onClick="setOrder"
         android:text="@string/ButtonText" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/updatebutton"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/txtdev" />
+        android:layout_alignLeft="@+id/buttontest"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/buttontest"
+        android:text="@string/update"
+        android:onClick="fetchUpdate" />
 
-    <EditText
-        android:id="@+id/UsersName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bestellungstext"
-        android:layout_below="@+id/textView2"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/usernamebsptxt" >
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="89dp"
-        android:text="@string/txtview2" />
-    
 </RelativeLayout>

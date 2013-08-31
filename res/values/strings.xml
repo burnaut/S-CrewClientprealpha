@@ -9,5 +9,6 @@
     <string name="ButtonText">Test It!</string>
     <string name="txtdev">Pre-Alpha developed by Sebastian Walla</string>
     <string name="txtview2">" "</string>
+    <string name="update">Update</string>
 
 </resources>
