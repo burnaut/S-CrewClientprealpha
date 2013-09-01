@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/holzbackground" >
+
+    <EditText
+        android:id="@+id/txtfieldadminname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/adminnamehint"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/txtfieldpw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/txtfieldadminname"
+        android:layout_below="@+id/txtfieldadminname"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/adminpwhint"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/buttonlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txtfieldpw"
+        android:layout_toRightOf="@+id/txtfieldpw"
+        android:text="@string/buttonlogintxt"
+        android:onClick="log_in" />
+
+    <TextView
+        android:id="@+id/textviewbottomlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonlogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="138dp"
+        android:text="@string/txtviewbottomlogintxt" />
+        
+</RelativeLayout>

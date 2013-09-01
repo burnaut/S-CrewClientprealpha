@@ -13,6 +13,7 @@ import java.util.HashMap;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -24,6 +25,7 @@ public class MainActivity extends Activity {
 	   OutputStream o=null;
 	   Thread t=null;
 	   Thread update=null;
+	   Thread txtviewable=null;
 	   String Restaurant=null;
 	   String UserID=null;
 	   String UserBestellung=null;
@@ -35,7 +37,6 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.activity_main);
 		
 	}
@@ -43,7 +44,8 @@ public class MainActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		
+		//getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 	public void fetchUpdate(View view){
@@ -68,21 +70,22 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        	exit();
+       	//exit();
 		}
 		});
 		update.start();
+		tv=(TextView) findViewById(R.id.textViewHeadline);
+		tv.setText(Restaurant);
+		tv.setVisibility(0);
 		try {
-			Thread.sleep(500);
+			Thread.sleep(250);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		tv=(TextView) findViewById(R.id.textViewHeadline);
-		tv.setText(Restaurant);
-		tv.setVisibility(0);
+		
 	}
-
+	
 	
 	public void setOrder(View view){
 		text=(CharSequence) "Connecting";
@@ -107,18 +110,31 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 exit();
+		 //exit();
 		   }
 		   });
 		   t.start();
 		   try {
-				Thread.sleep(500);
+				Thread.sleep(320);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		   text=(CharSequence) "Data sent";
-			  tv.setText(text);
+		   txtviewable=new Thread(new Runnable(){
+			   public void run(){
+				   
+					  tv.setText("Data Sent->");
+					  try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			   
+			   }
+		   });
+		   txtviewable.start();
+		   tv.setVisibility(4);
 	   }
 	public void exit(){
 		try {
@@ -136,6 +152,10 @@ public class MainActivity extends Activity {
 	public void connecttoServer(){
 		 try {
 				serverside=new Socket("veteran1.ez.lv",5544);//serverside ist der server
+				i= serverside.getInputStream();
+				o= serverside.getOutputStream();
+				oos = new ObjectOutputStream(o);
+				ois= new ObjectInputStream(i);
 			     } catch (UnknownHostException e) {
 			    	 e.printStackTrace();
 				
@@ -144,36 +164,16 @@ public class MainActivity extends Activity {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				
-
-			}			   
-			  try {
-				i= serverside.getInputStream();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			} catch (NullPointerException e){
+				tv=(TextView) findViewById(R.id.textViewBottom);
+				tv.setText("Server currently unreachable"+"/n"+"Please try again later");
 				e.printStackTrace();
 			}
-			  try {
-				o= serverside.getOutputStream();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			  
-			  try {
-					oos = new ObjectOutputStream(o);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			  try {
-				ois= new ObjectInputStream(i);
-			} catch (StreamCorruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		 	
+			
+	}
+	public void toAdminConsole(View view){
+		Intent intent= new Intent(this,LogInConsoleActivity.class);
+		startActivity(intent);
 	}
 }

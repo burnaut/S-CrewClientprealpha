@@ -8,7 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:icon="@drawable/ic_launcher" >
 
     <TextView
         android:id="@+id/textViewHeadline"
@@ -70,5 +71,14 @@
         android:layout_below="@+id/buttontest"
         android:text="@string/update"
         android:onClick="fetchUpdate" />
+
+    <Button
+        android:id="@+id/buttontoadminconsole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="@string/buttontxttoadminconsole"
+        android:onClick="toAdminConsole" />
 
 </RelativeLayout>

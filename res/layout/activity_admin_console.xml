@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/holzbackground" >
+
+    <EditText
+        android:id="@+id/txtfieldrestaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="31dp"
+        android:ems="10"
+        android:hint="@string/txtfieldrestauranthint" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/buttonsetRestaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txtfieldrestaurant"
+        android:onClick="setRestaurant"
+        android:text="@string/buttonsetrestauranttxt" />
+
+    <Button
+        android:id="@+id/buttongetGesamt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/buttonsetRestaurant"
+        android:layout_marginTop="120dp"
+        android:onClick="getGesamt"
+        android:text="@string/buttontxtgetGesamt" />
+
+</RelativeLayout>
