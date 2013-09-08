@@ -26,22 +26,24 @@ public final class R {
         public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
-        public static final int RelativeLayoutMain=0x7f080007;
-        public static final int UsersName=0x7f080009;
-        public static final int action_settings=0x7f08000f;
-        public static final int bestellungstext=0x7f08000b;
+        public static final int RelativeLayoutMain=0x7f080009;
+        public static final int UsersName=0x7f08000b;
+        public static final int action_settings=0x7f080011;
+        public static final int bestellungstext=0x7f08000d;
         public static final int buttongetGesamt=0x7f080002;
-        public static final int buttonlogin=0x7f080005;
+        public static final int buttonlogin=0x7f080007;
         public static final int buttonsetRestaurant=0x7f080001;
-        public static final int buttontest=0x7f08000c;
-        public static final int buttontoadminconsole=0x7f08000e;
-        public static final int textViewBottom=0x7f08000a;
-        public static final int textViewHeadline=0x7f080008;
-        public static final int textviewbottomlogin=0x7f080006;
-        public static final int txtfieldadminname=0x7f080003;
-        public static final int txtfieldpw=0x7f080004;
+        public static final int buttontest=0x7f08000e;
+        public static final int buttontoadminconsole=0x7f080010;
+        public static final int textViewBottom=0x7f08000c;
+        public static final int textViewHeadline=0x7f08000a;
+        public static final int textViewtopadminconsole=0x7f080004;
+        public static final int textviewbottomlogin=0x7f080008;
+        public static final int txtfieldadminname=0x7f080005;
+        public static final int txtfieldpw=0x7f080006;
         public static final int txtfieldrestaurant=0x7f080000;
-        public static final int updatebutton=0x7f08000d;
+        public static final int txtviewbottomgesamtbestellung=0x7f080003;
+        public static final int updatebutton=0x7f08000f;
     }
     public static final class layout {
         public static final int activity_admin_console=0x7f030000;
@@ -63,10 +65,12 @@ public final class R {
         public static final int buttontxtgetGesamt=0x7f05000f;
         public static final int buttontxttoadminconsole=0x7f050009;
         public static final int hello_world=0x7f050002;
+        public static final int txtadminconsoltop=0x7f050012;
         public static final int txtdev=0x7f050006;
         public static final int txtfieldrestauranthint=0x7f050010;
         public static final int txtview2=0x7f050007;
         public static final int txtviewbottomlogintxt=0x7f05000d;
+        public static final int txtviewgesamtbestellung=0x7f050011;
         public static final int update=0x7f050008;
         public static final int usernamebsptxt=0x7f050004;
     }

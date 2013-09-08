@@ -18,5 +18,7 @@
     <string name="buttonsetrestauranttxt">Set Restaurant</string>
     <string name="buttontxtgetGesamt">Get the whole Order</string>
     <string name="txtfieldrestauranthint">Restaurant</string>
+    <string name="txtviewgesamtbestellung"></string>
+    <string name="txtadminconsoltop">" "</string>
 
 </resources>

@@ -86,15 +86,16 @@ public class LogInConsoleActivity extends Activity{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			try {
+			
+			 }
+		 });
+	     t.start();
+	     try {
 				Thread.sleep(200);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}  
-			 }
-		 });
-	     t.start();
 	     TextView tv=(TextView) findViewById(R.id.textviewbottomlogin);
 			tv.setText("False Name or Password");
 	 }

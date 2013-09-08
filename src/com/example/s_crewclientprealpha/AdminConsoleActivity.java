@@ -15,6 +15,7 @@ import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class AdminConsoleActivity extends Activity {
 	Socket serverside = null;
@@ -24,7 +25,9 @@ public class AdminConsoleActivity extends Activity {
 	   ObjectInputStream ois=null;
 	   Thread t;
 	   Thread t1;
-	   Object GesamtBestellung;
+	   TextView tv;
+	   String GesamtBestellung;
+	   char[] cbuf= new char[1000];
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_console);
@@ -70,7 +73,8 @@ public class AdminConsoleActivity extends Activity {
 			
 		});
 		t.start();	
-	
+	tv=(TextView) findViewById(R.id.textViewtopadminconsole);
+	tv.setText("Restaurant Set");
      }
 	public void getGesamt(View view){
 		t1=new Thread(new Runnable(){
@@ -82,7 +86,7 @@ public class AdminConsoleActivity extends Activity {
 					oos = new ObjectOutputStream(o);
 					ois= new ObjectInputStream(i); 
 				    oos.writeObject("getGesamt()");
-				    GesamtBestellung=ois.readObject();
+				    GesamtBestellung=(String) ois.readObject();
 					
 			     } catch (UnknownHostException e) {
 			    	 e.printStackTrace();
@@ -98,11 +102,28 @@ public class AdminConsoleActivity extends Activity {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+				
+				
 			}	
+			
 			
 		});
 		t1.start();	
-	
+//		BufferedReader br;
+//		String GesamtBestellungstring;
+//		try{
+//			br= new BufferedReader(new FileReader(GesamtBestellung)) ;
+//			br.read(cbuf);
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		TextView tv=(TextView) findViewById(R.id.txtviewbottomgesamtbestellung);
+		tv.setText(GesamtBestellung);
      }
 	
 }
