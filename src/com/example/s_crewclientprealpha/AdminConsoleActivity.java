@@ -31,6 +31,7 @@ public class AdminConsoleActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_console);
+        tv=(TextView) findViewById(R.id.txtviewbottomgesamtbestellung);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             // Show the Up button in the action bar.
             getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -53,11 +54,13 @@ public class AdminConsoleActivity extends Activity {
 					o= serverside.getOutputStream();
 					oos = new ObjectOutputStream(o);
 					ois= new ObjectInputStream(i); 
-				    oos.writeObject("setRestaurant()");
+				    oos.writeInt(2);
+				    oos.flush();
 				    EditText et= (EditText) findViewById(R.id.txtfieldrestaurant);
 				    String Restaurant;
 				    Restaurant=et.getText().toString();
 				    oos.writeObject(Restaurant);
+				    oos.flush();
 			     } catch (UnknownHostException e) {
 			    	 e.printStackTrace();
 				
@@ -79,15 +82,20 @@ public class AdminConsoleActivity extends Activity {
 	public void getGesamt(View view){
 		t1=new Thread(new Runnable(){
 			public void run(){
+				
 				try{
+					
 			 		serverside=new Socket("veteran1.ez.lv",5544);//serverside ist der server
 		 			i= serverside.getInputStream();
 					o= serverside.getOutputStream();
 					oos = new ObjectOutputStream(o);
 					ois= new ObjectInputStream(i); 
-				    oos.writeObject("getGesamt()");
+				    oos.writeInt(5);
+				    oos.flush();
+				    
+				    
 				    GesamtBestellung=(String) ois.readObject();
-					
+			
 			     } catch (UnknownHostException e) {
 			    	 e.printStackTrace();
 				
@@ -109,6 +117,9 @@ public class AdminConsoleActivity extends Activity {
 			
 		});
 		t1.start();	
+		tv= (TextView) findViewById(R.id.txtviewbottomgesamtbestellung);
+	    tv.setText(GesamtBestellung);
+		
 //		BufferedReader br;
 //		String GesamtBestellungstring;
 //		try{
@@ -122,8 +133,8 @@ public class AdminConsoleActivity extends Activity {
 //			e.printStackTrace();
 //		}
 		
-		TextView tv=(TextView) findViewById(R.id.txtviewbottomgesamtbestellung);
-		tv.setText(GesamtBestellung);
+		
+		
      }
 	
 }

@@ -20,5 +20,6 @@
     <string name="txtfieldrestauranthint">Restaurant</string>
     <string name="txtviewgesamtbestellung"></string>
     <string name="txtadminconsoltop">" "</string>
+    <string name="sendorderbuttontxt">Send Order</string>
 
 </resources>

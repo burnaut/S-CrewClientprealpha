@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OptionalDataException;
 import java.io.OutputStream;
-import java.io.StreamCorruptedException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.HashMap;
+import java.util.concurrent.ExecutionException;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -26,11 +26,11 @@ public class MainActivity extends Activity {
 	   Thread t=null;
 	   Thread update=null;
 	   Thread txtviewable=null;
-	   String Restaurant=null;
+	  // String Restaurant=null;
 	   String UserID=null;
 	   String UserBestellung=null;
 	   CharSequence text=null;
-	   TextView tv=null;
+	   static TextView tv=null;
 	   ObjectOutputStream oos = null;
 	   ObjectInputStream ois=null;
 	   
@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+		tv=(TextView) findViewById(R.id.textViewHeadline);
 	}
 
 	@Override
@@ -48,18 +48,38 @@ public class MainActivity extends Activity {
 		//getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
 	public void fetchUpdate(View view){
-		update=new Thread(new Runnable(){
+		tv=(TextView)findViewById(R.id.textViewHeadline);
+		tv.setText("Retrieving the Restaurant");
+		AsyncTask<Void, Void, String> at= new Task();
+		at.execute();
+//		at.getStatus();
+		try {
+			tv.setText(at.get());
+		} catch (InterruptedException e1) {
+     		// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ExecutionException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} 
+		
+		
+		/*	update=new Thread(new Runnable(){
 		public void run(){
 			connecttoServer();
+			
 			try {
-				oos.writeObject("getRestaurant()");
+				oos.writeInt(1);
+				oos.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		try {
 			Restaurant=(String) ois.readObject();
+			
 		} catch (OptionalDataException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -74,15 +94,17 @@ public class MainActivity extends Activity {
 		}
 		});
 		update.start();
-		tv=(TextView) findViewById(R.id.textViewHeadline);
-		tv.setText(Restaurant);
-		tv.setVisibility(0);
+		tv.setText("Hi");
+		
+		
+//		tv.setText(Restaurant);
+//		tv.setVisibility(View.VISIBLE);		
 		try {
 			Thread.sleep(250);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
 	}
 	
@@ -103,7 +125,7 @@ public class MainActivity extends Activity {
 		  
 
 		  try {
-			  oos.writeObject("setOrder()");
+			  oos.writeInt(3);
 			  oos.writeObject(UserID);
 			  oos.writeObject(behelfsmap);
 		} catch (IOException e) {
@@ -166,7 +188,7 @@ public class MainActivity extends Activity {
 				e.printStackTrace();
 			} catch (NullPointerException e){
 				tv=(TextView) findViewById(R.id.textViewBottom);
-				tv.setText("Server currently unreachable"+"/n"+"Please try again later");
+				tv.setText("Server currently unreachable"+"-"+"Please try again later");
 				e.printStackTrace();
 			}
 		 	
@@ -177,3 +199,5 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 	}
 }
+
+

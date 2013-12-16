@@ -69,9 +69,12 @@ public class LogInConsoleActivity extends Activity{
 			  EditText et2=(EditText) findViewById(R.id.txtfieldpw);
 			  Pw=et2.getText().toString();
 			  try {
-				oos.writeObject("log_in()");
+				oos.writeInt(4);
+				oos.flush();
 				oos.writeObject(ID);
+				oos.flush();
 				oos.writeObject(Pw);
+				oos.flush();
 				String answer=(String) ois.readObject();
 				if(answer.equals("Access Granted")){
 					to_admin_console();
@@ -96,8 +99,7 @@ public class LogInConsoleActivity extends Activity{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}  
-	     TextView tv=(TextView) findViewById(R.id.textviewbottomlogin);
-			tv.setText("False Name or Password");
+	    
 	 }
 public void to_admin_console(){
 	Intent intent= new Intent(this,AdminConsoleActivity.class);

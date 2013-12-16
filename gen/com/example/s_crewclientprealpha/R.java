@@ -65,6 +65,7 @@ public final class R {
         public static final int buttontxtgetGesamt=0x7f05000f;
         public static final int buttontxttoadminconsole=0x7f050009;
         public static final int hello_world=0x7f050002;
+        public static final int sendorderbuttontxt=0x7f050013;
         public static final int txtadminconsoltop=0x7f050012;
         public static final int txtdev=0x7f050006;
         public static final int txtfieldrestauranthint=0x7f050010;

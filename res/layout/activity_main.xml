@@ -17,7 +17,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/txtdev" />
+        android:text="@string/txtdev"
+        android:visibility="visible" />
 
     <EditText
         android:id="@+id/UsersName"
@@ -59,7 +60,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/bestellungstext"
         android:onClick="setOrder"
-        android:text="@string/ButtonText" />
+        android:text="@string/sendorderbuttontxt" />
 
     <Button
         android:id="@+id/updatebutton"
