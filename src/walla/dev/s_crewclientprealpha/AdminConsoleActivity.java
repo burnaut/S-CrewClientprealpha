@@ -1,4 +1,4 @@
-package com.example.s_crewclientprealpha;
+package walla.dev.s_crewclientprealpha;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,6 +7,9 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+
+import walla.dev.s_crewclientprealpha.R;
+
 
 import android.app.Activity;
 import android.os.Build;

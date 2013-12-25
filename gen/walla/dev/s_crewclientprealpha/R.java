@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.example.s_crewclientprealpha;
+package walla.dev.s_crewclientprealpha;
 
 public final class R {
     public static final class attr {

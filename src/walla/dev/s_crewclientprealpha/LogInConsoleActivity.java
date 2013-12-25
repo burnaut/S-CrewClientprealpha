@@ -1,4 +1,4 @@
-package com.example.s_crewclientprealpha;
+package walla.dev.s_crewclientprealpha;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,6 +8,9 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import walla.dev.s_crewclientprealpha.R;
+
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
@@ -16,7 +19,6 @@ import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class LogInConsoleActivity extends Activity{
 		Thread t;

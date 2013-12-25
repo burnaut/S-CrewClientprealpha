@@ -1,10 +1,9 @@
-package com.example.s_crewclientprealpha;
+package walla.dev.s_crewclientprealpha;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.ObjectStreamConstants;
 import java.io.OptionalDataException;
 import java.io.OutputStream;
 import java.net.Socket;
