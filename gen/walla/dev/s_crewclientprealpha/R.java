@@ -28,8 +28,9 @@ public final class R {
     public static final class id {
         public static final int RelativeLayoutMain=0x7f080009;
         public static final int UsersName=0x7f08000b;
-        public static final int action_settings=0x7f080011;
+        public static final int action_settings=0x7f080012;
         public static final int bestellungstext=0x7f08000d;
+        public static final int button1=0x7f080011;
         public static final int buttongetGesamt=0x7f080002;
         public static final int buttonlogin=0x7f080007;
         public static final int buttonsetRestaurant=0x7f080001;
@@ -62,6 +63,7 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int buttonlogintxt=0x7f05000c;
         public static final int buttonsetrestauranttxt=0x7f05000e;
+        public static final int buttonstuermer=0x7f050014;
         public static final int buttontxtgetGesamt=0x7f05000f;
         public static final int buttontxttoadminconsole=0x7f050009;
         public static final int hello_world=0x7f050002;

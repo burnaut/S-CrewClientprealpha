@@ -70,8 +70,8 @@
         android:layout_alignLeft="@+id/buttontest"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/buttontest"
-        android:text="@string/update"
-        android:onClick="fetchUpdate" />
+        android:onClick="fetchUpdate"
+        android:text="@string/update" />
 
     <Button
         android:id="@+id/buttontoadminconsole"
@@ -81,5 +81,14 @@
         android:layout_alignParentRight="true"
         android:text="@string/buttontxttoadminconsole"
         android:onClick="toAdminConsole" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/updatebutton"
+        android:text="@string/buttonstuermer"
+        android:onClick="stuermerpdf" />
 
 </RelativeLayout>

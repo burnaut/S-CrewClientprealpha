@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="walla.dev.s_crewclientprealpha"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="2"
+    android:versionName="1.01" >
 
     <uses-sdk
         android:minSdkVersion="12"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="19" />
     <uses-permission 
         android:name="android.permission.INTERNET"
         />
@@ -36,6 +36,14 @@
         <activity
             android:name="walla.dev.s_crewclientprealpha.AdminConsoleActivity"
             android:label="Admin Console"
+            android:parentActivityName="walla.dev.s_crewclientprealpha.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.s_crewclientprealpha.MainActivity" />
+        </activity>
+         <activity
+            android:name="walla.dev.s_crewclientprealpha.StuermerPdfActivity"
+            android:label="Stürmer Speisekarte"
             android:parentActivityName="walla.dev.s_crewclientprealpha.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

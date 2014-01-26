@@ -197,6 +197,11 @@ public class MainActivity extends Activity {
 		 	
 			
 	}
+	public void stuermerpdf(View view){
+		Intent intent=new Intent(this,StuermerPdfActivity.class);
+		startActivity(intent);
+		
+	}
 	public void toAdminConsole(View view){
 		Intent intent= new Intent(this,LogInConsoleActivity.class);
 		startActivity(intent);

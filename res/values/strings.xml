@@ -21,5 +21,6 @@
     <string name="txtviewgesamtbestellung"></string>
     <string name="txtadminconsoltop">" "</string>
     <string name="sendorderbuttontxt">Send Order</string>
+    <string name="buttonstuermer">Stürmer</string>
 
 </resources>
