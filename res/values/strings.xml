@@ -22,5 +22,7 @@
     <string name="txtadminconsoltop">" "</string>
     <string name="sendorderbuttontxt">Send Order</string>
     <string name="buttonstuermer">Stürmer</string>
+    <string name="stuermerbuttontxtdropdown">Stürmer Dropdown</string>
+    <string name="promptstuermer">Choose meal</string>
 
 </resources>

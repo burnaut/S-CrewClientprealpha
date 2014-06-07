@@ -11,14 +11,14 @@ import java.net.UnknownHostException;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
-public class Task extends AsyncTask<Void,Void,String>{
+public class Task extends AsyncTask<Integer,Void,String>{
 	Socket serverside = null;
 	   InputStream i=null;
 	   OutputStream o=null;
 	   Thread t=null;
 	   Thread update=null;
 	   Thread txtviewable=null;
-	   String Restaurant=null;
+	   String response=null;
 	   String UserID=null;
 	   String UserBestellung=null;
 	   CharSequence text=null;
@@ -27,11 +27,11 @@ public class Task extends AsyncTask<Void,Void,String>{
 	   ObjectInputStream ois=null;
 	  	
 	@Override
-	protected String doInBackground(Void... params) {
+	protected String doInBackground(Integer... params) {
 		connecttoServer();
 		System.out.println("connecting to server...");
 		try {
-			oos.writeInt(1);
+			oos.writeInt(params[0]);
 			System.out.println("next step is flushing");
 			oos.flush();
 		} catch (IOException e) {
@@ -39,7 +39,7 @@ public class Task extends AsyncTask<Void,Void,String>{
 			e.printStackTrace();
 		}
 	    try {
-			Restaurant=(String) ois.readObject();
+			response=(String) ois.readObject();
 	} catch (OptionalDataException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -50,7 +50,7 @@ public class Task extends AsyncTask<Void,Void,String>{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-		return Restaurant;
+		return response;
 				
 	}
 	@Override

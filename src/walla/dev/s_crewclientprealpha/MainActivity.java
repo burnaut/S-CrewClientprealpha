@@ -7,6 +7,7 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
@@ -19,7 +20,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -37,11 +40,13 @@ public class MainActivity extends Activity {
 	   ObjectOutputStream oos = null;
 	   ObjectInputStream ois=null;
 	   
+	   
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		tv=(TextView) findViewById(R.id.textViewHeadline);
+		
 	}
 
 	@Override
@@ -53,10 +58,11 @@ public class MainActivity extends Activity {
 	}
 	
 	public void fetchUpdate(View view){
+		int x=1;//1=getRestaurant();
 		tv=(TextView)findViewById(R.id.textViewHeadline);
 		tv.setText("Retrieving the Restaurant");
-		AsyncTask<Void, Void, String> at= new Task();
-		at.execute();
+		AsyncTask<Integer, Void, String> at= new Task();
+		at.execute(x);
 //		at.getStatus();
 		try {
 			tv.setText(at.get());
@@ -66,49 +72,7 @@ public class MainActivity extends Activity {
 		} catch (ExecutionException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		} 
-		
-		
-		/*	update=new Thread(new Runnable(){
-		public void run(){
-			connecttoServer();
-			
-			try {
-				oos.writeInt(1);
-				oos.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		try {
-			Restaurant=(String) ois.readObject();
-			
-		} catch (OptionalDataException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-       	//exit();
-		}
-		});
-		update.start();
-		tv.setText("Hi");
-		
-		
-//		tv.setText(Restaurant);
-//		tv.setVisibility(View.VISIBLE);		
-		try {
-			Thread.sleep(250);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-		
+		} 		
 	}
 	
 	
@@ -197,6 +161,20 @@ public class MainActivity extends Activity {
 		 	
 			
 	}
+	
+	public void dropdown_vorbereiten(){
+		ArrayList<String> al=new ArrayList<String>();
+		al.add("Schweinebraten");
+		al.add("Currypenis");
+		Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+		ArrayAdapter<String> adapter =new ArrayAdapter<String>(this ,android.R.layout.simple_spinner_item ,al);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		// Apply the adapter to the spinner
+		spinner.setAdapter(adapter);
+		spinner.setOnItemSelectedListener(new Spinnerlistener());
+		System.out.println("Spinner vorbereitet");
+	}
+	
 	public void stuermerpdf(View view){
 		Intent intent=new Intent(this,StuermerPdfActivity.class);
 		startActivity(intent);

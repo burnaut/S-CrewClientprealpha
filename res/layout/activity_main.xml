@@ -83,12 +83,22 @@
         android:onClick="toAdminConsole" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buttonstuermerpdf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/updatebutton"
         android:text="@string/buttonstuermer"
         android:onClick="stuermerpdf" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonstuermerpdf"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/buttonstuermerpdf"
+        
+        android:prompt="@string/promptstuermer" />
 
 </RelativeLayout>
